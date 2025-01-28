@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Waitlist</title>
+    <title>Algenius Waitlist</title>
     <style>
         /* Global Styles */
         * {
@@ -14,84 +14,126 @@
 
         body {
             font-family: 'Arial', sans-serif;
-            background: linear-gradient(135deg, #6C63FF, #AB47BC);
+            background: linear-gradient(135deg, #1e033e, #290652);
             color: #fff;
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
+            overflow: hidden;
         }
 
-        /* Container */
         .container {
-            background: #fff;
-            color: #333;
-            padding: 40px;
-            border-radius: 15px;
-            max-width: 500px;
             text-align: center;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            max-width: 600px;
+            padding: 40px;
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.05);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
         }
 
-        /* Headings */
         .container h1 {
-            font-size: 2rem;
+            font-size: 3rem;
+            font-weight: bold;
+            background: linear-gradient(90deg, #a66bff, #c86bff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
             margin-bottom: 10px;
         }
 
         .container p {
-            font-size: 1rem;
-            margin-bottom: 20px;
-            color: #666;
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            color: rgba(255, 255, 255, 0.8);
         }
 
-        /* Input and Button */
-        .container input {
-            width: 100%;
-            padding: 15px;
-            margin-bottom: 15px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            font-size: 1rem;
+        .form-group {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
         }
 
-        .container button {
-            width: 100%;
+        .form-group input {
             padding: 15px;
+            font-size: 1rem;
             border: none;
-            border-radius: 8px;
-            background: #6C63FF;
+            border-radius: 10px;
+            width: 70%;
+            outline: none;
+            background: rgba(255, 255, 255, 0.1);
             color: #fff;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .form-group input::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .form-group button {
+            padding: 15px 30px;
             font-size: 1rem;
+            background: linear-gradient(90deg, #6a00ff, #9b00ff);
+            border: none;
+            border-radius: 10px;
+            color: #fff;
             font-weight: bold;
             cursor: pointer;
             transition: background 0.3s ease;
         }
 
-        .container button:hover {
-            background: #564ec2;
+        .form-group button:hover {
+            background: linear-gradient(90deg, #5c00e6, #8600e6);
         }
 
-        /* Success Message */
         .success-message {
-            display: none;
             margin-top: 20px;
             font-size: 1.2rem;
-            color: green;
-            font-weight: bold;
+            color: #4caf50;
+            display: none;
+        }
+
+        .avatars {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 20px;
+            gap: 5px;
+        }
+
+        .avatars img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 2px solid #fff;
+        }
+
+        .avatars span {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.8);
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Join Our Waitlist</h1>
-        <p>Be the first to access our new platform!</p>
+        <p>Waitlist</p>
+        <h1>Algenius</h1>
+        <p>Be first in line to experience the future of AI with Algenius! Join our waitlist for exclusive access.</p>
         <form id="waitlist-form">
-            <input type="email" id="email" placeholder="Enter your email" required>
-            <button type="submit">Join Now</button>
+            <div class="form-group">
+                <input type="email" id="email" placeholder="Your Email" required>
+                <button type="submit">Join Waitlist</button>
+            </div>
         </form>
         <div class="success-message" id="success-message">
             Thank you for joining the waitlist!
+        </div>
+        <div class="avatars">
+            <img src="https://i.pravatar.cc/40?img=1" alt="Avatar 1">
+            <img src="https://i.pravatar.cc/40?img=2" alt="Avatar 2">
+            <img src="https://i.pravatar.cc/40?img=3" alt="Avatar 3">
+            <span>Join 5,000+ already onboard</span>
         </div>
     </div>
 
@@ -111,3 +153,4 @@
     </script>
 </body>
 </html>
+
