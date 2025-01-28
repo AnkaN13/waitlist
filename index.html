@@ -298,7 +298,8 @@
 
   <div class="container">
     <h1 class="title">ESSENSA</h1>
-    <p class="subtitle">Be first in line to experience the future of AI with Essensa! Join our waitlist for exclusive access.</p>
+    <p class="subtitle">
+Bądź pierwszy w kolejce, aby doświadczyć przyszłości AI z ESENSSA! Dołącz do naszej listy oczekujących, zyskaj cały rok korzystania z aplikacji za darmo!</p>
 
     <!-- GŁÓWNY FORMULARZ (AJAX do FormSubmit) -->
     <form 
@@ -317,7 +318,7 @@
 
     <!-- Komunikat o sukcesie (pokazywany przez JS) -->
     <div class="success-message" id="success-message">
-      Thank you for joining the waitlist!
+     Dziękujemy za dołączenie do listy oczekujących!
     </div>
 
     <!-- Avatary -->
@@ -325,7 +326,7 @@
       <img src="https://ankan13.github.io/waitlist/avatar1.webp" alt="User 1">
       <img src="https://ankan13.github.io/waitlist/avatar2.webp" alt="User 2">
       <img src="https://ankan13.github.io/waitlist/avatar3.webp" alt="User 3">
-      <span>Join 5,000+ already onboard</span>
+      <span>Dołącz do 1000+ osób, które już są z nami </span>
     </div>
   </div>
 
@@ -333,31 +334,32 @@
   <div class="app-info">
     <img src="https://ankan13.github.io/waitlist/essensa1.png" alt="Essensa App">
     <div class="text">
-      <h2>About the App</h2>
-      <p>Essensa redefines how you learn by delivering key knowledge from books, podcasts, and articles, supporting your growth in every field. Join today and experience the future of learning.</p>
+      <h2>Esencja wiedzy na wyciągnięcie ręki!</h2>
+      <p>Essensa rewolucjonizuje sposób, w jaki się uczysz. Nasza aplikacja w kilka minut dziennie dostarczy Ci kluczową wiedzę z książek, podcastów, artykułów i szkoleń, wspierając Twój rozwój w każdej dziedzinie.
+</p>
     </div>
   </div>
 
   <!-- Pricing -->
   <div class="pricing">
     <div class="pricing-card">
-      <h3>Join the Waitlist</h3>
-      <p>Get early access</p>
+      <h3>Dołącz do listy oczekujących</h3>
+      <p>Uzyskaj wczesny dostęp</p>
       <span>Free</span>
-      <button class="free" onclick="showPopup()">Sign Up</button>
+      <button class="free" onclick="showPopup()">Zapisz się</button>
     </div>
     <div class="pricing-card">
-      <h3>Premium Access</h3>
+      <h3>Premium dostę</h3>
       <p>Unlock all features</p>
-      <span>49 zł/month</span>
-      <button class="premium" disabled>Coming Soon</button>
+      <span>229 zł/mies</span>
+      <button class="premium" disabled>Wkrótce</button>
     </div>
   </div>
 
   <!-- Pop-up (drugi formularz w okienku) -->
   <div class="overlay" id="overlay" onclick="closePopup()"></div>
   <div class="popup" id="popup">
-    <h3>Join the Waitlist</h3>
+    <h3>Dołącz do listy oczekujących</h3>
     <form 
       id="popup-form"
       autocomplete="off"
@@ -370,7 +372,7 @@
       <button type="submit">Submit</button>
     </form>
     <div class="success-message" id="popup-success-message" style="display:none;">
-      Thank you for joining the waitlist via popup!
+      Dziękujęmy!
     </div>
     <button class="close" onclick="closePopup()">Close</button>
   </div>
@@ -427,7 +429,7 @@
           popupSuccessMessage.style.display = 'block';
           popupForm.reset();
         } else {
-          alert('Oops! Something went wrong in popup. Please try again.');
+          alert('Ups! Coś poszło nie tak w wyskakującym okienku. Spróbuj ponownie.');
         }
       } catch (error) {
         alert('Error in popup: ' + error);
