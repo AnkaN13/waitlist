@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Algenius Waitlist</title>
+    <title>Essensa Waitlist</title>
     <style>
         /* General Reset */
         * {
@@ -19,8 +19,9 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            flex-direction: column;
             min-height: 100vh;
-            overflow: hidden;
+            overflow-x: hidden;
         }
 
         .container {
@@ -47,8 +48,9 @@
         }
 
         .title {
-            font-size: 3.5rem;
+            font-size: 4rem;
             font-weight: bold;
+            font-family: 'Arial', sans-serif;
             background: linear-gradient(to right, #ff00e6, #6a00ff);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -127,20 +129,42 @@
             color: rgba(255, 255, 255, 0.8);
         }
 
-        @keyframes glow {
-            0%, 100% {
-                box-shadow: 0 0 20px #6a00ff;
-            }
-            50% {
-                box-shadow: 0 0 40px #ff00e6;
-            }
+        .app-info {
+            margin-top: 50px;
+            text-align: center;
+        }
+
+        .app-info h2 {
+            font-size: 2rem;
+            color: #fff;
+            margin-bottom: 20px;
+        }
+
+        .app-info p {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 30px;
+        }
+
+        .app-images {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .app-images img {
+            width: 150px;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1 class="title">Algenius</h1>
-        <p class="subtitle">Be first in line to experience the future of AI with Algenius! Join our waitlist for exclusive access.</p>
+        <h1 class="title">Essensa</h1>
+        <p class="subtitle">Be first in line to experience the future of AI with Essensa! Join our waitlist for exclusive access.</p>
         <form id="waitlist-form" class="form">
             <input type="email" id="email" placeholder="Your Email" required>
             <button type="submit">Join Waitlist</button>
@@ -149,10 +173,19 @@
             Thank you for joining the waitlist!
         </div>
         <div class="avatars">
-            <img src="https://i.pravatar.cc/50?img=1" alt="User 1">
-            <img src="https://i.pravatar.cc/50?img=2" alt="User 2">
-            <img src="https://i.pravatar.cc/50?img=3" alt="User 3">
+            <img src="https://i.pravatar.cc/50?img=4" alt="User 1">
+            <img src="https://i.pravatar.cc/50?img=5" alt="User 2">
+            <img src="https://i.pravatar.cc/50?img=6" alt="User 3">
             <span>Join 5,000+ already onboard</span>
+        </div>
+    </div>
+
+    <div class="app-info">
+        <h2>About the App</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <div class="app-images">
+            <img src="https://via.placeholder.com/150" alt="App Screenshot 1">
+            <img src="https://via.placeholder.com/150" alt="App Screenshot 2">
         </div>
     </div>
 
