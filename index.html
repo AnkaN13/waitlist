@@ -3,114 +3,172 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Waitlist Page</title>
+    <title>Algenius Waitlist</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
+        /* General Reset */
+        * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: radial-gradient(circle, #1e033e, #290652);
+            color: #fff;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
-            background-color: #f4f4f9;
+            min-height: 100vh;
+            overflow: hidden;
         }
-        .waitlist-container {
+
+        .container {
             text-align: center;
-            background: #fff;
-            padding: 20px 40px;
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-            border-radius: 12px;
+            max-width: 800px;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.05);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            position: relative;
         }
-        h1 {
-            color: #333;
-            margin-bottom: 10px;
+
+        .container::before {
+            content: '';
+            position: absolute;
+            top: -10%;
+            left: -10%;
+            width: 120%;
+            height: 120%;
+            background: conic-gradient(from 180deg, #6a00ff, #290652, #ff00e6, #6a00ff);
+            filter: blur(60px);
+            z-index: -1;
         }
-        p {
-            color: #666;
+
+        .title {
+            font-size: 3.5rem;
+            font-weight: bold;
+            background: linear-gradient(to right, #ff00e6, #6a00ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
             margin-bottom: 20px;
         }
-        .email-input {
-            padding: 10px;
-            font-size: 16px;
-            width: 100%;
-            margin-bottom: 20px;
-            border: 1px solid #ccc;
-            border-radius: 6px;
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 30px;
         }
-        .submit-btn {
-            padding: 10px 20px;
-            font-size: 16px;
-            background-color: #5a67d8;
-            color: #fff;
+
+        .form {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .form input {
+            padding: 15px;
+            width: 60%;
+            font-size: 1rem;
             border: none;
-            border-radius: 6px;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            outline: none;
+        }
+
+        .form input::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .form button {
+            padding: 15px 25px;
+            font-size: 1rem;
+            background: linear-gradient(90deg, #ff00e6, #6a00ff);
+            border: none;
+            border-radius: 10px;
+            color: #fff;
+            font-weight: bold;
             cursor: pointer;
+            transition: all 0.3s ease;
         }
-        .submit-btn:hover {
-            background-color: #4c51bf;
+
+        .form button:hover {
+            background: linear-gradient(90deg, #6a00ff, #ff00e6);
         }
-        .success-message, .error-message {
-            display: none;
-            margin-top: 10px;
-            font-size: 14px;
-        }
+
         .success-message {
-            color: #38a169;
+            display: none;
+            font-size: 1.2rem;
+            color: #4caf50;
+            margin-top: 20px;
         }
-        .error-message {
-            color: #e53e3e;
+
+        .avatars {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 20px;
+            gap: 10px;
+        }
+
+        .avatars img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: 2px solid #fff;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .avatars span {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        @keyframes glow {
+            0%, 100% {
+                box-shadow: 0 0 20px #6a00ff;
+            }
+            50% {
+                box-shadow: 0 0 40px #ff00e6;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="waitlist-container">
-        <h1>Join Our Waitlist</h1>
-        <p>Be the first to access our new product!</p>
-        <form id="waitlistForm">
-            <input 
-                type="email" 
-                id="email" 
-                class="email-input" 
-                placeholder="Enter your email" 
-                required 
-            />
-            <button type="submit" class="submit-btn">Join Waitlist</button>
+    <div class="container">
+        <h1 class="title">Algenius</h1>
+        <p class="subtitle">Be first in line to experience the future of AI with Algenius! Join our waitlist for exclusive access.</p>
+        <form id="waitlist-form" class="form">
+            <input type="email" id="email" placeholder="Your Email" required>
+            <button type="submit">Join Waitlist</button>
         </form>
-        <div id="successMessage" class="success-message">
-            Thank you! You've been added to the waitlist.
+        <div class="success-message" id="success-message">
+            Thank you for joining the waitlist!
         </div>
-        <div id="errorMessage" class="error-message">
-            Oops! Something went wrong. Please try again.
+        <div class="avatars">
+            <img src="https://i.pravatar.cc/50?img=1" alt="User 1">
+            <img src="https://i.pravatar.cc/50?img=2" alt="User 2">
+            <img src="https://i.pravatar.cc/50?img=3" alt="User 3">
+            <span>Join 5,000+ already onboard</span>
         </div>
     </div>
 
     <script>
-        const form = document.getElementById('waitlistForm');
-        const successMessage = document.getElementById('successMessage');
-        const errorMessage = document.getElementById('errorMessage');
-
-        form.addEventListener('submit', (e) => {
+        document.getElementById('waitlist-form').addEventListener('submit', function (e) {
             e.preventDefault();
-            const email = document.getElementById('email').value;
+            const emailInput = document.getElementById('email');
+            const successMessage = document.getElementById('success-message');
 
-            if (validateEmail(email)) {
+            if (emailInput.value) {
                 successMessage.style.display = 'block';
-                errorMessage.style.display = 'none';
-                form.reset();
-                // You can add code here to send the email to your server
+                emailInput.value = '';
             } else {
-                successMessage.style.display = 'none';
-                errorMessage.style.display = 'block';
+                alert('Please enter a valid email address!');
             }
         });
-
-        function validateEmail(email) {
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            return emailRegex.test(email);
-        }
     </script>
 </body>
 </html>
-
-
