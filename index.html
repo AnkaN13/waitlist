@@ -14,7 +14,6 @@
 
     body {
       font-family: 'DM Sans', sans-serif;
-      /* Mocniejszy radial gradient w tle */
       background: radial-gradient(circle at center, #4a0069 0%, #0D0316 100%);
       color: #fff;
       display: flex;
@@ -23,14 +22,15 @@
       min-height: 100vh;
       overflow-x: hidden;
       position: relative;
+      margin-bottom: 150px; /* Większy margines na dole */
     }
 
     header {
       width: 100%;
       text-align: center;
-      /* mniejsza przerwa z góry i dołu, aby logo było bliżej tytułu */
       margin: 10px 0;
     }
+
     header img {
       width: 150px;
       height: auto;
@@ -41,13 +41,10 @@
       max-width: 800px;
       padding: 40px;
       border-radius: 20px;
-      position: relative;
-      /* usunięcie dużego marginesu, żeby tytuł był bliżej logo */
       margin-top: 0;
       margin-bottom: 50px;
     }
 
-    /* tytuł */
     .title {
       font-size: 5rem;
       font-weight: bold;
@@ -64,13 +61,13 @@
       margin-bottom: 30px;
     }
 
-    /* formularz w głównej sekcji */
     .form {
       display: flex;
       justify-content: center;
       align-items: center;
       gap: 15px;
     }
+
     .form input {
       padding: 15px;
       width: 60%;
@@ -81,9 +78,11 @@
       color: #fff;
       outline: none;
     }
+
     .form input::placeholder {
       color: rgba(255, 255, 255, 0.5);
     }
+
     .form button {
       padding: 15px 25px;
       font-size: 1rem;
@@ -95,24 +94,17 @@
       cursor: pointer;
       transition: all 0.3s ease;
     }
+
     .form button:hover {
       background: linear-gradient(90deg, #C57DEF, #6a00ff);
     }
 
-    /* komunikat o sukcesie */
-    .success-message {
-      display: none;
-      margin-top: 20px;
-      font-size: 1.2rem;
-      color: #4caf50;
-    }
-
-    /* Avatary – pomniejszone i lekko na siebie nachodzące */
     .avatars {
-      display: inline-flex; /* pozbywamy się gap i używamy margin-left do nachodzenia */
+      display: inline-flex;
       align-items: center;
       margin-top: 20px;
     }
+
     .avatars img {
       width: 40px;
       height: 40px;
@@ -120,18 +112,17 @@
       border: 2px solid #fff;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     }
-    /* Każdy kolejny avatar lekko przesunięty w lewo */
+
     .avatars img:not(:first-child) {
       margin-left: -15px;
     }
-    /* Tekst "Join 5,000+" wyrzucamy do osobnego spanu z odrobiną lewego marginesu */
+
     .avatars span {
       margin-left: 20px;
       font-size: 1rem;
       color: rgba(255, 255, 255, 0.8);
     }
 
-    /* Info o aplikacji */
     .app-info {
       margin-top: 50px;
       display: flex;
@@ -141,33 +132,37 @@
       text-align: left;
       padding: 0 20px;
     }
+
     .app-info img {
       width: 300px;
       height: auto;
       border-radius: 15px;
       box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
     }
+
     .app-info .text {
       max-width: 400px;
     }
+
     .app-info h2 {
       font-size: 2rem;
       color: #C57DEF;
       margin-bottom: 20px;
     }
+
     .app-info p {
       font-size: 1.1rem;
       color: rgba(255, 255, 255, 0.8);
       line-height: 1.5;
     }
 
-    /* Pricing */
     .pricing {
       display: flex;
       justify-content: center;
       gap: 20px;
       margin-top: 50px;
     }
+
     .pricing-card {
       background: rgba(255, 255, 255, 0.1);
       padding: 20px;
@@ -175,16 +170,19 @@
       text-align: center;
       box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
     }
+
     .pricing-card h3 {
       font-size: 1.5rem;
       color: #C57DEF;
       margin-bottom: 10px;
     }
+
     .pricing-card p {
       font-size: 1.2rem;
       color: #fff;
       margin-bottom: 10px;
     }
+
     .pricing-card span {
       font-size: 2rem;
       font-weight: bold;
@@ -192,6 +190,7 @@
       margin-bottom: 20px;
       display: block;
     }
+
     .pricing-card button {
       padding: 10px 20px;
       font-size: 1rem;
@@ -200,122 +199,35 @@
       cursor: pointer;
       transition: background 0.3s ease;
     }
+
     .pricing-card .free {
       background: linear-gradient(90deg, #6a00ff, #C57DEF);
       color: #fff;
     }
+
     .pricing-card .free:hover {
       background: linear-gradient(90deg, #C57DEF, #6a00ff);
     }
-    .pricing-card .premium {
-      background: rgba(255, 255, 255, 0.1);
-      color: #fff;
-      cursor: not-allowed;
-    }
 
-    /* Pop-up ładniejszy, szerszy */
-    .overlay {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.7);
-      z-index: 999;
-    }
-    .overlay.show {
-      display: block;
-    }
-
-    .popup {
-      display: none;
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 500px; /* Zwiększona szerokość */
-      padding: 30px; /* Większe odstępy */
-      background: rgba(36, 17, 52, 0.9); /* Subtelne przeźroczyste tło */
-      border-radius: 15px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
-      text-align: center;
-      z-index: 1000;
-    }
-    .popup.show {
-      display: block;
-    }
-    .popup h3 {
-      margin-bottom: 20px;
-    }
-    .popup form {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-      margin-bottom: 20px;
-    }
-    .popup form input {
-      width: 100%;
-      padding: 15px;
-      border: none;
-      border-radius: 10px;
-      background: rgba(255, 255, 255, 0.1);
-      color: #fff;
-      outline: none;
-      font-size: 1rem;
-    }
-    .popup form button {
-      padding: 15px 25px;
-      font-size: 1rem;
-      background: linear-gradient(90deg, #6a00ff, #C57DEF);
-      border: none;
-      border-radius: 10px;
-      color: #fff;
-      font-weight: bold;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-    .popup form button:hover {
-      background: linear-gradient(90deg, #C57DEF, #6a00ff);
-    }
-    .popup button.close {
-      margin-top: 10px;
-      padding: 10px 20px;
-      font-size: 1rem;
-      background: #C57DEF;
-      border: none;
-      border-radius: 5px;
-      color: #fff;
-      cursor: pointer;
-    }
-    .popup button.close:hover {
-      background: #6a00ff;
-    }
-
-    /* Dodaj widget na dole z animacją “unoszenia się” */
     .widget-floating {
-      width: 200px;
+      width: 100%; /* Widget na całą szerokość */
       position: absolute;
-      bottom: 20px;
-      /* Wyśrodkowanie (oś X) względem body */
-      left: 50%;
-      transform: translateX(-50%);
+      bottom: 0; /* Ustawienie widgetu przy dolnej krawędzi */
+      left: 0;
       animation: float 3s ease-in-out infinite;
     }
 
     @keyframes float {
       0%, 100% {
-        transform: translate(-50%, 0);
+        transform: translate(0, 0);
       }
       50% {
-        transform: translate(-50%, -10px);
+        transform: translate(0, -10px);
       }
     }
-
   </style>
 </head>
 <body>
-  <!-- Logo (bez napisu Waitlist) -->
   <header>
     <img src="https://ankan13.github.io/waitlist/logo2.png.png" alt="Essensa Logo">
   </header>
@@ -324,27 +236,11 @@
     <h1 class="title">ESSENSA</h1>
     <p class="subtitle">Be first in line to experience the future of AI with Essensa! Join our waitlist for exclusive access.</p>
 
-    <!-- GŁÓWNY FORMULARZ -->
-    <form 
-      id="waitlist-form"
-      class="form"
-      autocomplete="off"
-    >
-      <!-- Pola hidden do FormSubmit -->
-      <input type="hidden" name="_subject" value="Nowy email do ESSENSA Waitlist" />
-      <input type="hidden" name="_captcha" value="false" />
-      <input type="hidden" name="_template" value="table" />
-
+    <form id="waitlist-form" class="form" autocomplete="off">
       <input type="email" name="email" placeholder="Your Email" required />
       <button type="submit">Join Waitlist</button>
     </form>
 
-    <!-- Komunikat o sukcesie (pokazywany przez JS) -->
-    <div class="success-message" id="success-message">
-      Thank you for joining the waitlist!
-    </div>
-
-    <!-- Avatary pomniejszone i nachodzące -->
     <div class="avatars">
       <img src="https://ankan13.github.io/waitlist/avatar1.webp" alt="User 1">
       <img src="https://ankan13.github.io/waitlist/avatar2.webp" alt="User 2">
@@ -353,123 +249,8 @@
     </div>
   </div>
 
-  <div class="app-info">
-    <img src="https://ankan13.github.io/waitlist/essensa1.png" alt="Essensa App">
-    <div class="text">
-      <h2>About the App</h2>
-      <p>Essensa redefines how you learn by delivering key knowledge from books, podcasts, and articles, supporting your growth in every field. Join today and experience the future of learning.</p>
-    </div>
+  <div class="widget-floating">
+    <img src="https://ankan13.github.io/waitlist/widget.svg" alt="Widget">
   </div>
-
-  <div class="pricing">
-    <div class="pricing-card">
-      <h3>Join the Waitlist</h3>
-      <p>Get early access</p>
-      <span>Free</span>
-      <button class="free" onclick="showPopup()">Sign Up</button>
-    </div>
-    <div class="pricing-card">
-      <h3>Premium Access</h3>
-      <p>Unlock all features</p>
-      <span>49 zł/month</span>
-      <button class="premium" disabled>Coming Soon</button>
-    </div>
-  </div>
-
-  <!-- Pop-up szerszy i ładniejszy -->
-  <div class="overlay" id="overlay" onclick="closePopup()"></div>
-  <div class="popup" id="popup">
-    <h3>Join the Waitlist</h3>
-    <!-- FORMULARZ W POP-UPIE -->
-    <form 
-      id="popup-form"
-      autocomplete="off"
-    >
-      <input type="hidden" name="_subject" value="Nowy email (popup) do ESSENSA Waitlist" />
-      <input type="hidden" name="_captcha" value="false" />
-      <input type="hidden" name="_template" value="table" />
-
-      <input type="email" name="email" placeholder="Your Email" required />
-      <button type="submit">Submit</button>
-    </form>
-    <!-- Komunikat w popupie -->
-    <div class="success-message" id="popup-success-message" style="display:none;">
-      Thank you for joining the waitlist via popup!
-    </div>
-    <button class="close" onclick="closePopup()">Close</button>
-  </div>
-
-  <!-- Widget na dole strony z animacją “unoszenia się” -->
-  <img src="https://ankan13.github.io/waitlist/widget.svg" alt="Widget" class="widget-floating" />
-
-  <script>
-    /* 
-      Funkcje showPopup i closePopup - wyświetlają/zamykają pop-up
-    */
-    function showPopup() {
-      document.getElementById('popup').classList.add('show');
-      document.getElementById('overlay').classList.add('show');
-    }
-
-    function closePopup() {
-      document.getElementById('popup').classList.remove('show');
-      document.getElementById('overlay').classList.remove('show');
-    }
-
-    /*
-      Obsługa głównego formularza (id="waitlist-form") za pomocą fetch do FormSubmit w trybie AJAX
-    */
-    const waitlistForm = document.getElementById('waitlist-form');
-    const successMessage = document.getElementById('success-message');
-
-    waitlistForm.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const formData = new FormData(waitlistForm);
-
-      try {
-        const response = await fetch('https://formsubmit.co/ajax/anna.nechytailova@gmail.com', {
-          method: 'POST',
-          body: formData
-        });
-        if (response.ok) {
-          successMessage.style.display = 'block';
-          waitlistForm.reset();
-        } else {
-          alert('Oops! Something went wrong. Please try again.');
-        }
-      } catch (error) {
-        alert('Error: ' + error);
-      }
-    });
-
-    /*
-      Obsługa formularza w pop-upie (id="popup-form")
-    */
-    const popupForm = document.getElementById('popup-form');
-    const popupSuccessMessage = document.getElementById('popup-success-message');
-
-    popupForm.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const formData = new FormData(popupForm);
-
-      try {
-        const response = await fetch('https://formsubmit.co/ajax/anna.nechytailova@gmail.com', {
-          method: 'POST',
-          body: formData
-        });
-        if (response.ok) {
-          // Pokaż komunikat
-          popupSuccessMessage.style.display = 'block';
-          // Wyczyść formularz
-          popupForm.reset();
-        } else {
-          alert('Oops! Something went wrong in popup. Please try again.');
-        }
-      } catch (error) {
-        alert('Error in popup: ' + error);
-      }
-    });
-  </script>
 </body>
 </html>
-
