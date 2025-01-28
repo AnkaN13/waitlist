@@ -3,154 +3,114 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Algenius Waitlist</title>
+    <title>Waitlist Page</title>
     <style>
-        /* Global Styles */
-        * {
+        body {
+            font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Arial', sans-serif;
-            background: linear-gradient(135deg, #1e033e, #290652);
-            color: #fff;
             display: flex;
             justify-content: center;
             align-items: center;
-            min-height: 100vh;
-            overflow: hidden;
+            height: 100vh;
+            background-color: #f4f4f9;
         }
-
-        .container {
+        .waitlist-container {
             text-align: center;
-            max-width: 600px;
-            padding: 40px;
-            border-radius: 20px;
-            background: rgba(255, 255, 255, 0.05);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-            backdrop-filter: blur(10px);
+            background: #fff;
+            padding: 20px 40px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
         }
-
-        .container h1 {
-            font-size: 3rem;
-            font-weight: bold;
-            background: linear-gradient(90deg, #a66bff, #c86bff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+        h1 {
+            color: #333;
             margin-bottom: 10px;
         }
-
-        .container p {
-            font-size: 1.2rem;
-            margin-bottom: 30px;
-            color: rgba(255, 255, 255, 0.8);
+        p {
+            color: #666;
+            margin-bottom: 20px;
         }
-
-        .form-group {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 10px;
+        .email-input {
+            padding: 10px;
+            font-size: 16px;
+            width: 100%;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
         }
-
-        .form-group input {
-            padding: 15px;
-            font-size: 1rem;
-            border: none;
-            border-radius: 10px;
-            width: 70%;
-            outline: none;
-            background: rgba(255, 255, 255, 0.1);
+        .submit-btn {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #5a67d8;
             color: #fff;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .form-group input::placeholder {
-            color: rgba(255, 255, 255, 0.5);
-        }
-
-        .form-group button {
-            padding: 15px 30px;
-            font-size: 1rem;
-            background: linear-gradient(90deg, #6a00ff, #9b00ff);
             border: none;
-            border-radius: 10px;
-            color: #fff;
-            font-weight: bold;
+            border-radius: 6px;
             cursor: pointer;
-            transition: background 0.3s ease;
         }
-
-        .form-group button:hover {
-            background: linear-gradient(90deg, #5c00e6, #8600e6);
+        .submit-btn:hover {
+            background-color: #4c51bf;
         }
-
-        .success-message {
-            margin-top: 20px;
-            font-size: 1.2rem;
-            color: #4caf50;
+        .success-message, .error-message {
             display: none;
+            margin-top: 10px;
+            font-size: 14px;
         }
-
-        .avatars {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-top: 20px;
-            gap: 5px;
+        .success-message {
+            color: #38a169;
         }
-
-        .avatars img {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            border: 2px solid #fff;
-        }
-
-        .avatars span {
-            font-size: 1rem;
-            color: rgba(255, 255, 255, 0.8);
+        .error-message {
+            color: #e53e3e;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <p>Waitlist</p>
-        <h1>Algenius</h1>
-        <p>Be first in line to experience the future of AI with Algenius! Join our waitlist for exclusive access.</p>
-        <form id="waitlist-form">
-            <div class="form-group">
-                <input type="email" id="email" placeholder="Your Email" required>
-                <button type="submit">Join Waitlist</button>
-            </div>
+    <div class="waitlist-container">
+        <h1>Join Our Waitlist</h1>
+        <p>Be the first to access our new product!</p>
+        <form id="waitlistForm">
+            <input 
+                type="email" 
+                id="email" 
+                class="email-input" 
+                placeholder="Enter your email" 
+                required 
+            />
+            <button type="submit" class="submit-btn">Join Waitlist</button>
         </form>
-        <div class="success-message" id="success-message">
-            Thank you for joining the waitlist!
+        <div id="successMessage" class="success-message">
+            Thank you! You've been added to the waitlist.
         </div>
-        <div class="avatars">
-            <img src="https://i.pravatar.cc/40?img=1" alt="Avatar 1">
-            <img src="https://i.pravatar.cc/40?img=2" alt="Avatar 2">
-            <img src="https://i.pravatar.cc/40?img=3" alt="Avatar 3">
-            <span>Join 5,000+ already onboard</span>
+        <div id="errorMessage" class="error-message">
+            Oops! Something went wrong. Please try again.
         </div>
     </div>
 
     <script>
-        document.getElementById('waitlist-form').addEventListener('submit', function (e) {
-            e.preventDefault();
-            const emailInput = document.getElementById('email');
-            const successMessage = document.getElementById('success-message');
+        const form = document.getElementById('waitlistForm');
+        const successMessage = document.getElementById('successMessage');
+        const errorMessage = document.getElementById('errorMessage');
 
-            if (emailInput.value) {
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const email = document.getElementById('email').value;
+
+            if (validateEmail(email)) {
                 successMessage.style.display = 'block';
-                emailInput.value = ''; // Clear input field
+                errorMessage.style.display = 'none';
+                form.reset();
+                // You can add code here to send the email to your server
             } else {
-                alert('Please enter a valid email address!');
+                successMessage.style.display = 'none';
+                errorMessage.style.display = 'block';
             }
         });
+
+        function validateEmail(email) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
     </script>
 </body>
 </html>
+
 
