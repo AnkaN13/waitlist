@@ -14,7 +14,7 @@
 
         body {
             font-family: 'DM Sans', sans-serif;
-            background: radial-gradient(circle, #0B0210, #1A0D26);
+            background: radial-gradient(circle, #0D0316, #1A0D26);
             color: #fff;
             display: flex;
             flex-direction: column;
@@ -27,8 +27,6 @@
             text-align: center;
             max-width: 800px;
             padding: 40px;
-            background: none;
-            box-shadow: none;
             border-radius: 20px;
             position: relative;
             margin-bottom: 50px;
@@ -229,19 +227,55 @@
             cursor: not-allowed;
         }
 
-        .footer-image {
-            margin-top: 50px;
-            animation: float 3s ease-in-out infinite;
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 400px;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            z-index: 1000;
         }
 
-        @keyframes float {
-            0%, 100% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-10px);
-            }
+        .popup.show {
+            display: block;
         }
+
+        .popup button.close {
+            margin-top: 10px;
+            padding: 10px 20px;
+            font-size: 1rem;
+            background: #C57DEF;
+            border: none;
+            border-radius: 5px;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        .popup button.close:hover {
+            background: #6a00ff;
+        }
+
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 999;
+        }
+
+        .overlay.show {
+            display: block;
+        }
+
     </style>
 </head>
 <body>
@@ -259,9 +293,9 @@
             Thank you for joining the waitlist!
         </div>
         <div class="avatars">
-            <img src="https://via.placeholder.com/50?text=U1" alt="User 1">
-            <img src="https://via.placeholder.com/50?text=U2" alt="User 2">
-            <img src="https://via.placeholder.com/50?text=U3" alt="User 3">
+            <img src="/mnt/data/661fa7d5120660e7f44ae18d_Avatar 1-p-500.webp" alt="User 1">
+            <img src="/mnt/data/661fa7dae404423a6df83df3_Avatar 2.webp" alt="User 2">
+            <img src="/mnt/data/661fa7d6c2438b4dedde0371_Avatar 3.webp" alt="User 3">
             <span>Join 5,000+ already onboard</span>
         </div>
     </div>
@@ -280,7 +314,7 @@
             <h3>Join the Waitlist</h3>
             <p>Get early access</p>
             <span>Free</span>
-            <button class="free" onclick="scrollToForm()">Sign Up</button>
+            <button class="free" onclick="showPopup()">Sign Up</button>
         </div>
         <div class="pricing-card">
             <h3>Premium Access</h3>
@@ -290,9 +324,27 @@
         </div>
     </div>
 
-    <img src="https://via.placeholder.com/1440x420" alt="Decorative Image" class="footer-image">
+    <div class="overlay" id="overlay" onclick="closePopup()"></div>
+    <div class="popup" id="popup">
+        <h3>Join the Waitlist</h3>
+        <form id="popup-form" class="form">
+            <input type="email" placeholder="Your Email" required>
+            <button type="submit">Submit</button>
+        </form>
+        <button class="close" onclick="closePopup()">Close</button>
+    </div>
 
     <script>
+        function showPopup() {
+            document.getElementById('popup').classList.add('show');
+            document.getElementById('overlay').classList.add('show');
+        }
+
+        function closePopup() {
+            document.getElementById('popup').classList.remove('show');
+            document.getElementById('overlay').classList.remove('show');
+        }
+
         document.getElementById('waitlist-form').addEventListener('submit', function (e) {
             e.preventDefault();
             const emailInput = document.getElementById('email');
@@ -306,11 +358,12 @@
             }
         });
 
-        function scrollToForm() {
-            document.getElementById('waitlist-form').scrollIntoView({ behavior: 'smooth' });
-        }
+        document.getElementById('popup-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+            alert('Thank you for signing up!');
+            closePopup();
+        });
     </script>
 </body>
 </html>
-
 
