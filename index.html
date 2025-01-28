@@ -14,7 +14,7 @@
 
         body {
             font-family: 'DM Sans', sans-serif;
-            background: radial-gradient(circle, #0D0316, #241134);
+            background: radial-gradient(circle at center, #0D0316, #241134);
             color: #fff;
             display: flex;
             flex-direction: column;
@@ -150,8 +150,23 @@
 
         .app-info {
             margin-top: 50px;
-            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            text-align: left;
             padding: 0 20px;
+        }
+
+        .app-info img {
+            width: 300px;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        .app-info .text {
+            max-width: 400px;
         }
 
         .app-info h2 {
@@ -163,21 +178,7 @@
         .app-info p {
             font-size: 1.1rem;
             color: rgba(255, 255, 255, 0.8);
-            margin-bottom: 30px;
-        }
-
-        .app-images {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 20px;
-        }
-
-        .app-images img {
-            width: 150px;
-            height: auto;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+            line-height: 1.5;
         }
 
         .pricing {
@@ -292,7 +293,7 @@
 </head>
 <body>
     <header>
-        <img src="https://ankan13.github.io/waitlist/logo.png" alt="Essensa Logo">
+        <img src="https://ankan13.github.io/waitlist/logo2.png" alt="Essensa Logo">
     </header>
     <div class="header">
         <span>Waitlist</span>
@@ -316,11 +317,10 @@
     </div>
 
     <div class="app-info">
-        <h2>About the App</h2>
-        <p>Essensa redefines how you learn by delivering key knowledge from books, podcasts, and articles, supporting your growth in every field.</p>
-        <div class="app-images">
-            <img src="https://via.placeholder.com/150" alt="App Screenshot 1">
-            <img src="https://via.placeholder.com/150" alt="App Screenshot 2">
+        <img src="https://ankan13.github.io/waitlist/essensa1.png" alt="Essensa App">
+        <div class="text">
+            <h2>About the App</h2>
+            <p>Essensa redefines how you learn by delivering key knowledge from books, podcasts, and articles, supporting your growth in every field. Join today and experience the future of learning.</p>
         </div>
     </div>
 
