@@ -14,7 +14,7 @@
 
         body {
             font-family: 'DM Sans', sans-serif;
-            background: radial-gradient(circle, #0D0316, #241134);
+            background: radial-gradient(circle, #0B0210, #1A0D26);
             color: #fff;
             display: flex;
             flex-direction: column;
@@ -27,24 +27,11 @@
             text-align: center;
             max-width: 800px;
             padding: 40px;
-            background: rgba(255, 255, 255, 0.05);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+            background: none;
+            box-shadow: none;
             border-radius: 20px;
-            backdrop-filter: blur(10px);
             position: relative;
             margin-bottom: 50px;
-        }
-
-        .container::before {
-            content: '';
-            position: absolute;
-            top: -10%;
-            left: -10%;
-            width: 120%;
-            height: 120%;
-            background: conic-gradient(from 180deg, #6a00ff, #241134, #c57def);
-            filter: blur(60px);
-            z-index: -1;
         }
 
         .header {
@@ -52,7 +39,7 @@
             justify-content: center;
             align-items: center;
             gap: 10px;
-            margin-bottom: 20px;
+            margin-bottom: 50px;
         }
 
         .header::before,
@@ -214,6 +201,32 @@
             font-size: 2rem;
             font-weight: bold;
             color: #fff;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .pricing-card button {
+            padding: 10px 20px;
+            font-size: 1rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .pricing-card .free {
+            background: linear-gradient(90deg, #6a00ff, #C57DEF);
+            color: #fff;
+        }
+
+        .pricing-card .free:hover {
+            background: linear-gradient(90deg, #C57DEF, #6a00ff);
+        }
+
+        .pricing-card .premium {
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            cursor: not-allowed;
         }
 
         .footer-image {
@@ -262,20 +275,22 @@
         </div>
     </div>
 
-    <img src="https://via.placeholder.com/1440x420" alt="Decorative Image" class="footer-image">
-
     <div class="pricing">
         <div class="pricing-card">
             <h3>Join the Waitlist</h3>
             <p>Get early access</p>
             <span>Free</span>
+            <button class="free" onclick="scrollToForm()">Sign Up</button>
         </div>
         <div class="pricing-card">
             <h3>Premium Access</h3>
             <p>Unlock all features</p>
             <span>49 zł/month</span>
+            <button class="premium" disabled>Coming Soon</button>
         </div>
     </div>
+
+    <img src="https://via.placeholder.com/1440x420" alt="Decorative Image" class="footer-image">
 
     <script>
         document.getElementById('waitlist-form').addEventListener('submit', function (e) {
@@ -290,6 +305,10 @@
                 alert('Please enter a valid email address!');
             }
         });
+
+        function scrollToForm() {
+            document.getElementById('waitlist-form').scrollIntoView({ behavior: 'smooth' });
+        }
     </script>
 </body>
 </html>
