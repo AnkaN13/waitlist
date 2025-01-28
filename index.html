@@ -21,31 +21,32 @@
       align-items: center;
       min-height: 100vh;
       overflow-x: hidden;
-      padding: 0 10px;
+      padding: 0 20px;
     }
 
     header {
       width: 100%;
       text-align: center;
-      margin: 10px 0;
+      margin: 20px 0;
       animation: fadeIn 1s ease-out;
     }
 
     header img {
-      width: 120px;
+      width: 150px;
       height: auto;
     }
 
     .container {
       text-align: center;
-      max-width: 100%;
-      padding: 20px;
-      margin-bottom: 30px;
+      max-width: 800px;
+      padding: 40px;
+      border-radius: 20px;
+      margin-bottom: 50px;
       animation: fadeInUp 1s ease-out;
     }
 
     .title {
-      font-size: 3rem;
+      font-size: 5rem;
       font-weight: bold;
       background: linear-gradient(to right, #C57DEF, #6a00ff);
       -webkit-background-clip: text;
@@ -54,21 +55,21 @@
     }
 
     .subtitle {
-      font-size: 1rem;
+      font-size: 1.2rem;
       color: #C57DEF;
-      margin-bottom: 20px;
+      margin-bottom: 30px;
     }
 
     .form {
       display: flex;
-      flex-direction: column;
-      gap: 10px;
+      justify-content: center;
+      gap: 15px;
       animation: fadeInUp 1.2s ease-out;
     }
 
     .form input {
       padding: 15px;
-      width: 100%;
+      width: 60%;
       font-size: 1rem;
       border: none;
       border-radius: 10px;
@@ -99,65 +100,74 @@
     }
 
     .avatars {
-      display: flex;
-      flex-direction: column;
+      display: inline-flex;
       align-items: center;
-      gap: 10px;
       margin-top: 20px;
       animation: fadeInUp 1.4s ease-out;
     }
 
     .avatars img {
-      width: 30px;
-      height: 30px;
+      width: 40px;
+      height: 40px;
       border-radius: 50%;
       border: 2px solid #fff;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .avatars img:not(:first-child) {
+      margin-left: -15px;
     }
 
     .avatars span {
+      margin-left: 20px;
       font-size: 1rem;
       color: rgba(255, 255, 255, 0.8);
     }
 
     .app-info {
       display: flex;
-      flex-direction: column;
-      text-align: center;
-      gap: 10px;
-      margin-top: 30px;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      text-align: left;
+      margin-top: 50px;
       animation: fadeInUp 1.6s ease-out;
     }
 
     .app-info img {
-      width: 100%;
+      width: 300px;
       height: auto;
       border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    }
+
+    .app-info .text {
+      max-width: 400px;
     }
 
     .app-info h2 {
-      font-size: 1.5rem;
+      font-size: 2rem;
       color: #C57DEF;
-      margin-bottom: 10px;
+      margin-bottom: 20px;
     }
 
     .app-info p {
-      font-size: 0.9rem;
+      font-size: 1.1rem;
       color: rgba(255, 255, 255, 0.8);
       line-height: 1.5;
     }
 
     .pricing {
       display: flex;
-      flex-direction: column;
+      justify-content: center;
       gap: 20px;
-      margin-top: 30px;
-      margin-bottom: 50px;
+      margin-top: 50px;
       animation: fadeInUp 1.8s ease-out;
     }
 
     .pricing-card {
       background: rgba(255, 255, 255, 0.1);
-      padding: 15px;
+      padding: 20px;
       border-radius: 10px;
       text-align: center;
       box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
@@ -169,27 +179,61 @@
     }
 
     .pricing-card h3 {
-      font-size: 1.2rem;
+      font-size: 1.5rem;
       color: #C57DEF;
       margin-bottom: 10px;
     }
 
-    .pricing-card span {
-      font-size: 1.5rem;
-      font-weight: bold;
+    .pricing-card p {
+      font-size: 1.2rem;
       color: #fff;
       margin-bottom: 10px;
     }
 
-    @media (min-width: 768px) {
+    .pricing-card span {
+      font-size: 2rem;
+      font-weight: bold;
+      color: #fff;
+      margin-bottom: 20px;
+      display: block;
+    }
+
+    @media (max-width: 768px) {
+      .title {
+        font-size: 3rem;
+      }
+
       .form {
-        flex-direction: row;
-        gap: 15px;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .form input {
+        width: 100%;
+      }
+
+      .form button {
+        width: 100%;
+      }
+
+      .avatars {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .app-info {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .app-info img {
+        width: 100%;
       }
 
       .pricing {
-        flex-direction: row;
-        justify-content: center;
+        flex-direction: column;
+        gap: 20px;
       }
     }
 
@@ -223,9 +267,7 @@
 
   <div class="container">
     <h1 class="title">ESSENSA</h1>
-    <p class="subtitle">
-      Bądź pierwszy w kolejce, aby doświadczyć przyszłości AI z ESSENSA!
-    </p>
+    <p class="subtitle">Bądź pierwszy w kolejce, aby doświadczyć przyszłości AI z ESSENSA!</p>
 
     <form class="form">
       <input type="email" placeholder="Twój email" required>
@@ -242,20 +284,25 @@
 
   <div class="app-info">
     <img src="https://ankan13.github.io/waitlist/essensa1.png" alt="App Image">
-    <h2>Esencja wiedzy na wyciągnięcie ręki!</h2>
-    <p>ESSENSA rewolucjonizuje sposób, w jaki się uczysz.</p>
+    <div class="text">
+      <h2>Esencja wiedzy na wyciągnięcie ręki!</h2>
+      <p>ESSENSA rewolucjonizuje sposób, w jaki się uczysz.</p>
+    </div>
   </div>
 
   <div class="pricing">
     <div class="pricing-card">
       <h3>Dołącz do listy oczekujących</h3>
+      <p>Uzyskaj wczesny dostęp</p>
       <span>Free</span>
     </div>
     <div class="pricing-card">
       <h3>Premium</h3>
+      <p>Odblokuj wszystkie możliwości</p>
       <span>229 zł/mies</span>
     </div>
   </div>
 
 </body>
 </html>
+
