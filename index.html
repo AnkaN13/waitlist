@@ -5,58 +5,78 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Waitlist</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f9f9f9;
+        /* Global Styles */
+        * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #6C63FF, #AB47BC);
+            color: #fff;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            min-height: 100vh;
         }
 
+        /* Container */
         .container {
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            background: #fff;
+            color: #333;
+            padding: 40px;
+            border-radius: 15px;
+            max-width: 500px;
             text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
         }
 
-        h1 {
-            font-size: 24px;
+        /* Headings */
+        .container h1 {
+            font-size: 2rem;
             margin-bottom: 10px;
         }
 
-        p {
+        .container p {
+            font-size: 1rem;
             margin-bottom: 20px;
-            color: #555;
+            color: #666;
         }
 
-        input {
-            padding: 10px;
-            width: 80%;
-            margin-bottom: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
+        /* Input and Button */
+        .container input {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
         }
 
-        button {
-            background: #007BFF;
-            color: white;
-            padding: 10px 20px;
+        .container button {
+            width: 100%;
+            padding: 15px;
             border: none;
-            border-radius: 5px;
+            border-radius: 8px;
+            background: #6C63FF;
+            color: #fff;
+            font-size: 1rem;
+            font-weight: bold;
             cursor: pointer;
+            transition: background 0.3s ease;
         }
 
-        button:hover {
-            background: #0056b3;
+        .container button:hover {
+            background: #564ec2;
         }
 
-        #message {
-            margin-top: 15px;
+        /* Success Message */
+        .success-message {
+            display: none;
+            margin-top: 20px;
+            font-size: 1.2rem;
             color: green;
             font-weight: bold;
         }
@@ -65,36 +85,27 @@
 <body>
     <div class="container">
         <h1>Join Our Waitlist</h1>
-        <p>Be the first to know when we launch.</p>
+        <p>Be the first to access our new platform!</p>
         <form id="waitlist-form">
             <input type="email" id="email" placeholder="Enter your email" required>
             <button type="submit">Join Now</button>
         </form>
-        <div id="message"></div>
+        <div class="success-message" id="success-message">
+            Thank you for joining the waitlist!
+        </div>
     </div>
 
     <script>
-        document.getElementById('waitlist-form').addEventListener('submit', async (e) => {
+        document.getElementById('waitlist-form').addEventListener('submit', function (e) {
             e.preventDefault();
+            const emailInput = document.getElementById('email');
+            const successMessage = document.getElementById('success-message');
 
-            const email = document.getElementById('email').value;
-            const messageDiv = document.getElementById('message');
-
-            if (!email) {
-                messageDiv.textContent = 'Please enter a valid email.';
-                messageDiv.style.color = 'red';
-                return;
-            }
-
-            // Fake API request simulation
-            try {
-                // Simulate a server response delay
-                await new Promise((resolve) => setTimeout(resolve, 1000));
-                messageDiv.textContent = 'Thank you for joining the waitlist!';
-                messageDiv.style.color = 'green';
-            } catch (error) {
-                messageDiv.textContent = 'Something went wrong. Please try again.';
-                messageDiv.style.color = 'red';
+            if (emailInput.value) {
+                successMessage.style.display = 'block';
+                emailInput.value = ''; // Clear input field
+            } else {
+                alert('Please enter a valid email address!');
             }
         });
     </script>
